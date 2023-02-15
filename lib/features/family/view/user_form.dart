@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 import 'package:memo_med/features/commons/widgets/widgets.dart';
 import 'package:memo_med/features/appointments/appointments.dart';
 import 'package:memo_med/features/family/provider/provider.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart' as bottomSheet;
 
 import 'package:memo_med/assets/avatar_images.dart';
 import '../model/user.dart';
@@ -136,7 +136,7 @@ class UserFormState extends ConsumerState<UserForm> {
                           if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
                             FocusManager.instance.primaryFocus?.unfocus();
                           }
-                          showCupertinoModalBottomSheet(
+                          bottomSheet.showCupertinoModalBottomSheet(
                             context: context,
                             builder: (context) => SizedBox(
                               height: 450,
@@ -251,7 +251,7 @@ class _AvatarGridViewState extends State<AvatarGridView> {
   Widget build(BuildContext context) {
     return Material(
       child: GridView.count(
-        controller: ModalScrollController.of(context),
+        controller: bottomSheet.ModalScrollController.of(context),
         crossAxisCount: 4,
         children: AvatarImage.avatarList
             .map(

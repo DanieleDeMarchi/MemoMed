@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +15,7 @@ class ToCompleteCountBadge extends ConsumerWidget {
     int toComplete = ref.watch(toCompleteActivitiesCount);
     return toComplete == 0
         ? const Icon(FontAwesomeIcons.calendarCheck)
-        : Badge(
+        : badges.Badge(
             badgeContent: Text(
               toComplete.toString(),
               style: const TextStyle(color: Colors.white),
